@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            font-size: 22px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            width: 280px;
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .highlight {
+            color: #00ffd5;
+        }
+
+        .decision {
+            color: orange;
+            font-size: 20px;
+        }
+
+        .chart-box {
+            width: 70%;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    🚀 AI Marketing Intelligence System
+</div>
+
+<h1>📊 Dashboard</h1>
+
+<div class="container">
+
+    <div class="card">
+        <p><b>Product:</b> {{ product }}</p>
+        <p><b>Platform:</b> {{ platform }}</p>
+        <p><b>Audience:</b> <span class="highlight">{{ audience }}</span></p>
+    </div>
+
+    <div class="card">
+        <p><b>Segment:</b> {{ segment }}</p>
+    </div>
+
+    <div class="card">
+        <p><b>CTR:</b> <span class="highlight">{{ ctr }}</span></p>
+        <p><b>Conversion:</b> <span class="highlight">{{ conversion }}</span></p>
+    </div>
+
+    <div class="card">
+        <p><b>AI Decision:</b></p>
+        <p class="decision">{{ decision }}</p>
+    </div>
+
+</div>
+
+<div class="chart-box">
+    <canvas id="chart"></canvas>
+</div>
+
+<script>
+new Chart(document.getElementById("chart"), {
+    type: 'bar',
+    data: {
+        labels: ['CTR', 'Conversion'],
+        datasets: [{
+            label: 'Performance',
+            data: [{{ ctr }}, {{ conversion }}],
+            backgroundColor: ['#00ffd5', '#ffcc00']
+        }]
+    },
+    options: {
+        plugins: {
+            legend: { labels: { color: 'white' } }
+        },
+        scales: {
+            x: { ticks: { color: 'white' } },
+            y: { ticks: { color: 'white' } }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

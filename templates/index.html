@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Campaign Generator</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 220px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #00ffd5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c9a7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>🚀 AI Campaign Generator</h2>
+
+    <form action="/result" method="post">
+        <input type="text" name="product" placeholder="Product" required><br>
+
+        <select name="platform">
+            <option>Meta Ads</option>
+            <option>Google Ads</option>
+        </select><br>
+
+        <input type="number" name="impressions" placeholder="Impressions" required><br>
+        <input type="number" name="clicks" placeholder="Clicks" required><br>
+
+        <button type="submit">Run AI</button>
+    </form>
+</div>
+
+</body>
+</html>
